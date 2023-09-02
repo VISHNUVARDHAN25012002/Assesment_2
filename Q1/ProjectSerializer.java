@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ProjectSerializer {
@@ -13,13 +13,13 @@ public class ProjectSerializer {
 	ArrayList<Employee> elist2 = new ArrayList<>();
 	ArrayList<Employee> elist3 = new ArrayList<>();
 
-	Map<Project, ArrayList<Employee>> projectMap1 = new HashMap<>();
-	Map<Project, ArrayList<Employee>> projectMap2 = new HashMap<>();
-	Map<Project, ArrayList<Employee>> projectMap3 = new HashMap<>();
+	Map<Project, ArrayList<Employee>> projectMap1 = new LinkedHashMap<>();
+	Map<Project, ArrayList<Employee>> projectMap2 = new LinkedHashMap<>();
+	Map<Project, ArrayList<Employee>> projectMap3 = new LinkedHashMap<>();
 
-	public void serializeProjectDetails(Map<Project, ArrayList<Employee>> projectMap1)throws IOException {
+	synchronized public void serializeProjectDetails(Map<Project, ArrayList<Employee>> projectMap1)throws IOException {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\MY PC\\eclipse-workspace\\Project1\\src\\com\\gradedproject\\q1\\file.txt");
+			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\maste\\eclipse-workspace\\Assesment\\src\\Q1\\file.txt");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(projectMap1);
 			out.close();

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-public class ProjectDeSeriailizer{
+ public class ProjectDeSeriailizer{
 	Map<Project,ArrayList<Employee>> employee;
 
     @SuppressWarnings("unchecked")
-	public Map<Project,ArrayList<Employee>> projectDeSeriailizer() {
+	synchronized public  Map<Project,ArrayList<Employee>> projectDeSeriailizer() {
 	try {
 		FileInputStream fileInput=new FileInputStream("C:\\Users\\maste\\eclipse-workspace\\Assesment\\src\\Q1\\file.txt");
 		ObjectInputStream in=new ObjectInputStream(fileInput);
